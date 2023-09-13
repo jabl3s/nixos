@@ -6,7 +6,7 @@ sudo nano -w /etc/resolv.conf ==> nameserver ((dns-server))
 iwctl station wlan0 connect SSID   
 ping google.com  
 timedatectl set-timezone "Europe/London"       
-###reflector -c GB -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+### MEH y no werk:: reflector -c GB -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist  
 sudo nano /etc/pacman.d/mirrorlist ### use uk mirrors remove others  
 lsblk     
 sudo gdisk /dev/sdX     
@@ -28,7 +28,7 @@ sudo pacman-key --init
 sudo pacman-key --populate archlinux             
 sudo mount -a     
 ### BELOW LINE MODS need soc-firmaware on msi katana, using lts kernel...  
-### curl -Ls https://raw.githubusercontent.com/jabl3s/rke1-arm64/main/archpacklist.txt | sudo pacstrap -K /mnt/arch                  
+### MEH so inconsistent dont run:: curl -Ls https://raw.githubusercontent.com/jabl3s/rke1-arm64/main/archpacklist.txt | sudo pacstrap -K /mnt/arch                  
 sudo pacstrap -K /mnt/arch
     base 
     linux 
