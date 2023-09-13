@@ -66,8 +66,7 @@ sudo pacstrap -K /mnt/arch
     dolphin  
     kde-applications  
 sudo arch-chroot /mnt/arch   
-git ((test))
-ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime  
 hwclock --systohc  
 echo archx8664-usb > /etc/hostname    
 nano -w /etc/locale.gen  # Uncomment the desired locale(s) ((en_GB.UTF-8 UTF-8))   
