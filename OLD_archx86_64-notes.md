@@ -94,11 +94,7 @@ EDITOR=nano visudo
 ### uncoment the wheel line  
 %wheel ALL=(ALL:ALL) ALL
 ###    
-systemctl enable NetworkManager sddm systemd-timesyncd  
-nano /etc/vconsole.conf
-###  
-KEYMAP=en  
-###  
+systemctl enable NetworkManager sddm systemd-timesyncd   
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB  
 nano /etc/default/grub
 ###  
@@ -245,3 +241,7 @@ see: https://github.com/korvahannu/arch-nvidia-drivers-installation-guide
 
 MEH y no werk:: reflector -c GB -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist  
 MEH so inconsistent dont run:: curl -Ls https://raw.githubusercontent.com/jabl3s/rke1-arm64/main/archpacklist.txt | sudo pacstrap -K /mnt/arch  
+nano /etc/vconsole.conf
+###  
+KEYMAP=en  
+### 
