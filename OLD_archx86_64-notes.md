@@ -4,7 +4,7 @@
 loadkeys uk  
 sudo nano -w /etc/resolv.conf ==> nameserver ((dns-server))   
 iwctl station wlan0 connect SSID   
-ping google.com
+ping google.com  
 timedatectl set-timezone "Europe/London"       
 ###reflector -c GB -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 sudo nano /etc/pacman.d/mirrorlist ### use uk mirrors remove others  
