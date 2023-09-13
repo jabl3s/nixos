@@ -6,7 +6,7 @@ sudo nano -w /etc/resolv.conf ==> nameserver ((dns-server))
 iwctl station wlan0 connect SSID   
 ping google.com  
 timedatectl set-timezone "Europe/London"       
-sudo nano /etc/pacman.d/mirrorlist ### use uk mirrors remove others  
+sudo nano /etc/pacman.d/mirrorlist ### use uk mirrors remove others, ((speedy=Ctrl+K))  
 lsblk     
 sudo gdisk /dev/sdX     
 ##### EF02 BIOS BOOT NOT SUPPORTED ON MY DEVICES USE EFI EF00     
