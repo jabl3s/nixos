@@ -65,6 +65,8 @@ sudo pacstrap -K /mnt/arch
     konsole  
     dolphin  
     kde-applications  
+
+  
 sudo arch-chroot /mnt/arch   
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime  
 hwclock --systohc  
