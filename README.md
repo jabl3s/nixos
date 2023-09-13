@@ -10,5 +10,25 @@ Boot partition in examples is EF00 but only 100MiB, classically 512MiB for grub,
 This the example to use for my current use case  https://github.com/nix-community/disko/blob/master/example/hybrid.nix  
 N.B. that the .../by-id/... part in the dir value will change on drive every re-insert, /dev/sdX. Instead try to aquire info on UUID specificatiion definition as to not incorrectly configure wrong drive by mistake. 
 Also note that mount for EF00 is at /boot, and not /boot/efi, in arch ive needed / to access the kernal images at /boot and mounting EF00 at /boot prevents this access, so /boot/efi has been used in the past with success.  
+
+Nix support hashtag comments but can i parse envs into it too, for example command below...   
+sudo nix run github:nix-community/disko -- --mode disko /tmp/disko-config.nix --arg disks '[ "/dev/nvme0n1" ]'  
+with my nix i do something like the below...  
+{ disks ? [ "/dev/vdb" ], ... }: {  
+ disk = {  
+  vdb = {  
+   device = builtins.elemAt disks 0;  
+   type = "disk";  
+   content = {  
+    type = "gpt";  
+    partitions = {  
+     ESP = {
+      size = "100M";
+      content = {
+       type = "filesystem";
+       format = "vfat";
+       ...   
+         
+If I have a .env I could somehow parse to the run command for automation of formatting any disks on mass, still need to figure out the /dev/sdX issue on drive re-insert though and how drive UUID might help but is often set during the partitioning process followed by foratting...    
   
 ### Need initial remote machine tools for setup   
