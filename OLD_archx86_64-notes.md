@@ -6,7 +6,6 @@ sudo nano -w /etc/resolv.conf ==> nameserver ((dns-server))
 iwctl station wlan0 connect SSID   
 ping google.com  
 timedatectl set-timezone "Europe/London"       
-### MEH y no werk:: reflector -c GB -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist  
 sudo nano /etc/pacman.d/mirrorlist ### use uk mirrors remove others  
 lsblk     
 sudo gdisk /dev/sdX     
@@ -27,47 +26,45 @@ sudo mkdir -p /mnt/arch/boot/efi
 sudo pacman-key --init   
 sudo pacman-key --populate archlinux             
 sudo mount -a     
-### BELOW LINE MODS need soc-firmaware on msi katana, using lts kernel...  
-### MEH so inconsistent dont run:: curl -Ls https://raw.githubusercontent.com/jabl3s/rke1-arm64/main/archpacklist.txt | sudo pacstrap -K /mnt/arch                  
+### BELOW LINE MODS need soc-firmaware on msi katana, using lts kernel...                    
 sudo pacstrap -K /mnt/arch
     base 
     linux 
     linux-firmware 
-    linux-headers 
-    sudo 
-    wireless_tools 
-    wpa_supplicant 
-    netctl 
-    base-devel 
-    nano 
-    dhcpcd 
-    networkmanager 
-    grub 
-    efibootmgr 
-    iw 
-    reflector 
-    xorg
-    sddm
-    plasma 
-    alsa-utils 
-    alsa-firmware 
-    alsa-lib 
-    alsa-oss 
-    sof-firmware 
-    ffmpeg 
-    nvidia 
-    nvidia-utils 
-    nvidia-settings 
-    vulkan-tools 
-    vulkan-icd-loader
-    intel-ucode
-    mesa
-    git
-    curl
-    firefox
-    konsole
-    dolphin
-    kde-applications
+    linux-headers  
+    base-devel  
+    wireless_tools  
+    wpa_supplicant  
+    netctl  
+    nano  
+    dhcpcd  
+    networkmanager  
+    grub  
+    efibootmgr  
+    iw  
+    reflector  
+    xorg  
+    sddm  
+    plasma  
+    alsa-utils  
+    alsa-firmware  
+    alsa-lib  
+    alsa-oss  
+    sof-firmware  
+    ffmpeg  
+    nvidia  
+    nvidia-utils  
+    nvidia-settings  
+    vulkan-tools  
+    vulkan-icd-loader  
+    intel-ucode  
+    mesa  
+    git  
+    curl  
+    firefox  
+    konsole  
+    dolphin  
+    kde-applications  
 sudo arch-chroot /mnt/arch   
 git ((test))
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
@@ -245,4 +242,7 @@ nano /etc/default/grub
 ###
 GRUB_CMDLINE_LINUX="nvidia_drm.modeset=1"
 
-see: https://github.com/korvahannu/arch-nvidia-drivers-installation-guide  
+see: https://github.com/korvahannu/arch-nvidia-drivers-installation-guide   
+
+MEH y no werk:: reflector -c GB -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist  
+MEH so inconsistent dont run:: curl -Ls https://raw.githubusercontent.com/jabl3s/rke1-arm64/main/archpacklist.txt | sudo pacstrap -K /mnt/arch  
