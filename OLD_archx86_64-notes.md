@@ -16,7 +16,7 @@ new partition ==> n  ==> (accept default start) ==> +512M ==> EF00
 n  ==> (accept all defaults, start, end, 8300)  
 write ==> w ==> yes  
 #####    
-sudo mkfs.fat -F32 /dev/sdX1 
+sudo mkfs.fat -F32 /dev/sdX1  
 sudo mkfs.ext4 /dev/sdX2  
 ### remember below airootfs fstab is temporary  
 sudo nano /etc/fstab    
