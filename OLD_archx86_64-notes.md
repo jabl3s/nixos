@@ -1,4 +1,4 @@
-### USB-USB config  
+d### USB-USB config  
 ### airootfs essentailly an entire os running in ram, adjust cow-space with 'e' at menu...     
   
 loadkeys uk  
