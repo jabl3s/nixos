@@ -127,6 +127,7 @@ $ amixer sset Headphone unmute
   
 ### Additional commands  
 sudo mount -o remount,rw / /  ((REdoesDNS))   
+sudo chmod -R o-w /  
 pacman -Rns package_name  
 blkid   
 iwctl device wlan0 set-property Powered on   
@@ -139,10 +140,7 @@ quit
 sudo systemctl restart systemd-networkd   
 /dev/sdX1 /mnt/arch/boot/efi vfat defaults 0 2   
 /dev/sdX2 none swap sw 0 0   
-/dev/sdX3 /mnt/arch ext4 defaults 0 1   
-sudo chmod -R o-w /   
-sudo mount -o remount,rw / /   
-sudo nano -w /etc/pacman.d/mirrorlist   
+/dev/sdX3 /mnt/arch ext4 defaults 0 1      
 ###  BOOT INTO GRUB identify root       
 ls   
 ls (hdX,Y)/   
