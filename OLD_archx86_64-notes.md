@@ -10,7 +10,7 @@ timedatectl set-timezone "Europe/London"
 sudo nano /etc/pacman.d/mirrorlist ### use uk mirrors remove others  
 lsblk     
 sudo gdisk /dev/sdX     
-##### BIOS BOOT NOT SUPPORTED ON MY DEVICES USE EFI EF00     
+##### EF02 BIOS BOOT NOT SUPPORTED ON MY DEVICES USE EFI EF00     
 overwrite with new gpt table ==> o ==> yes  
 new partition ==> n  ==> (accept default start) ==> +512M ==> EF00  
 n  ==> (accept all defaults, start, end, 8300)  
