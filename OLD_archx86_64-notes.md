@@ -114,7 +114,7 @@ sudo reboot
   
   
 # END  
-## Additional stuffz  
+### Additional non-sense    
 ##########  
 pamixer --get-volume-human  
 $ alsamixer
