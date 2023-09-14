@@ -1,4 +1,4 @@
-### USB-USB config  
+### Start USB-USB config  
 ### airootfs essentailly an entire os running in ram, adjust cow-space with 'e' at menu...     
   
 loadkeys uk  
@@ -112,12 +112,9 @@ exit
 sudo umount -a   
 sudo reboot     
   
-
-
-
-
-
-
+  
+# END  
+## Additional stuffz  
 ##########  
 pamixer --get-volume-human  
 $ alsamixer
