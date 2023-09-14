@@ -1,6 +1,6 @@
-### Start USB-USB config  
+# Start 
+### USB-USB config  
 ### airootfs essentailly an entire os running in ram, adjust cow-space with 'e' at menu...     
-  
 loadkeys uk  
 sudo nano -w /etc/resolv.conf ==> nameserver ((dns-server))   
 iwctl station wlan0 connect SSID   
