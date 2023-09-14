@@ -26,7 +26,7 @@ sudo mkdir -p /mnt/arch/boot/efi
 sudo pacman-key --init   
 sudo pacman-key --populate archlinux             
 sudo mount -a     
-### Need soc-firmaware on msi katana...                    
+### Need soc-firmaware on msi katana, using latest linux kernel vs lts...                    
 sudo pacstrap -K /mnt/arch  
     base  
     linux  
