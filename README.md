@@ -31,8 +31,8 @@ with my nix imma need do something like the below .nix file...
 If I have a .env I could somehow parse to the run command for automation of formatting any disks on mass, still need to figure out the /dev/sdX issue on drive re-insert though and how drive UUID might help but is often set during the partitioning process...(usb mac address)          
   
 ### Need initial nix machining tools for drive setup, plus root ssh if remote install/configure of drives and os packages   
-
-### Try adding this section below for hosts file config to my new nixos install,  
+  
+- Try adding this section below for hosts file config to my new nixos install,  
 - https://github.com/StevenBlack/hosts  
 {  
   networking.extraHosts = let  
