@@ -1,6 +1,7 @@
 # Start 
-### USB-arch-iso ==> USB config  
-### airootfs essentailly an entire os running in ram, adjust cow-space with 'e' at menu...     
+### USB-arch-iso tools ==> regular empty USB config for arch  
+why? cus, arch-iso cant be modified from within itself to increase root partition.    
+### airootfs is essentailly an entire os running in ram, adjust root size cow-space with 'e' at menu...     
 loadkeys uk  
 sudo nano -w /etc/resolv.conf ==> nameserver ((dns-server))   
 iwctl station wlan0 connect SSID   
