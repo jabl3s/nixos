@@ -32,10 +32,11 @@ If I have a .env I could somehow parse to the run command for automation of form
   
 ### Need initial nix machining tools for drive setup, plus root ssh if remote install/configure of drives and os packages   
 
-### Try adding this for hosts file config to my new nixos install see: https://github.com/StevenBlack/hosts
-{
-  networking.extraHosts = let
-    hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
-    hostsFile = builtins.fetchurl hostsPath;
-  in builtins.readFile "${hostsFile}";
-}
+### Try adding this section below for hosts file config to my new nixos install,  
+- https://github.com/StevenBlack/hosts  
+{  
+  networking.extraHosts = let  
+    hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;  
+    hostsFile = builtins.fetchurl hostsPath;  
+  in builtins.readFile "${hostsFile}";  
+}  
