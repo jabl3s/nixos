@@ -1,3 +1,22 @@
+#
+# /home/j/.nvidia-settings-rc
+#
+# Configuration file for nvidia-settings - the NVIDIA Settings utility
+# Generated on Sun Sep 17 23:56:57 2023
+#
+
+# ConfigProperties:
+
+RcFileLocale = C
+DisplayStatusBar = Yes
+SliderTextEntries = Yes
+IncludeDisplayNameInConfigFile = Yes
+UpdateRulesOnProfileNameChange = Yes
+Timer = Memory_Used_(GPU_0),Yes,3000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+
+# Attributes:
+
 # Example nvidia-settings-rc for OpenGL and Vulkan
 # This file should be placed in your home directory as ~/.nvidia-settings-rc
 
