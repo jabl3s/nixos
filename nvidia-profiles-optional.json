@@ -1,0 +1,22 @@
+{
+    "rules": [
+        {
+            "pattern": {
+                "feature": "true",
+                "matches": ""
+            },
+            "profile": "jprof"
+        }
+    ],
+    "profiles": [
+        {
+            "name": "jprof",
+            "settings": [
+                {
+                    "key": "GLGSYNCAllowed",
+                    "value": false
+                }
+            ]
+        }
+    ]
+}
