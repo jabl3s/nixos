@@ -11,8 +11,8 @@ __GL_SYNC_DISPLAY_DEVICE=DFP-0
 __GL_SYNC_TO_VBLANK=1
 __GL_SYNC_DISPLAY_DEVICE=DFP-0
 
-# Set the preferred OpenGL performance mode to "High Performance"
-nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+# Set the preferred OpenGL performance mode to "High Performance" with a 240Hz refresh rate
+nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On, RefreshRate = 240 }"
 
 # Configure Vulkan environment variable for NVIDIA GPUs
 # Set VK_ICD_FILENAMES to point to the NVIDIA Vulkan ICD file
