@@ -20,6 +20,9 @@ Timer = Thermal_Monitor_(GPU_0),Yes,1000
 # Example nvidia-settings-rc for OpenGL and Vulkan
 # This file should be placed in your home directory as ~/.nvidia-settings-rc
 
+# Disable G-SYNC
+__NV_G-SYNC=0
+
 # Enable threaded optimization for OpenGL applications
 # This can improve performance in some cases
 __NV_PRIME_RENDER_OFFLOAD=1
