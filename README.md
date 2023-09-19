@@ -47,5 +47,8 @@ sudo tar -xf GE-Proton*.tar.gz -C /home/j/.steam/root/compatibilitytools.d/
 
 ===  
   
-https://drakerossman.com/blog/wayland-on-nixos-confusion-conquest-triumph
+https://drakerossman.com/blog/wayland-on-nixos-confusion-conquest-triumph  
+  
+nixos-rebuild --flake .#jtower switch  
+  
 
