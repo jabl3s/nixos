@@ -15,6 +15,10 @@
                 {
                     "key": "GLGSYNCAllowed",
                     "value": false
+                },
+                {
+                    "key": "GLThreadedOptimizations",
+                    "value": true
                 }
             ]
         }
