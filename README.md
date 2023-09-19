@@ -45,3 +45,7 @@ If I have a .env I could somehow parse to the run command for automation of form
 Working nix for overwatch, note ((proton ge 8-2)) is the optimum for the non-mouse click to any loss of mouse after death / no steam instance running sweet spot for wayland...  
 sudo tar -xf GE-Proton*.tar.gz -C /home/j/.steam/root/compatibilitytools.d/  
 
+===  
+  
+https://drakerossman.com/blog/wayland-on-nixos-confusion-conquest-triumph
+
