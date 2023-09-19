@@ -119,7 +119,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-     wget
      # Work around #159267
      (pkgs.writeShellApplication {
        name = "discord";
@@ -130,18 +129,35 @@
        exec = "discord";
        desktopName = "Discord";
      })
-     solaar
-     file
-     unzip
-     wl-clipboard
-     pciutils
+     firefox
+     file 
+     unzip 
+     wl-clipboard 
+     pciutils 
      usbutils
      wol
+     wmctrl
+     kate
+     wget  
+     discord
+     solaar 
      lutris
      wineWowPackages.staging
-     wineWowPackages.waylandFull
      winetricks
      git
+     (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        bbenoist.nix # syntax highlight for .nix files in vscode
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "search-crates-io";
+          publisher = "belfz";
+          version = "1.2.1";
+          sha256 = "sha256-K2H4OHH6vgQvhhcOFdP3RD0fPghAxxbgurv+N82pFNs=";
+          # sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        }
+      ];
+    })
   ];
   powerManagement.cpuFreqGovernor = "ondemand";
   programs = {
