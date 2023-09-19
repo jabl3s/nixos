@@ -1,6 +1,10 @@
 # nixos  
   
-- Hosts file config to my new nixos installs found at::: https://github.com/StevenBlack/hosts  
+- Hosts file config to my new nixos installs found at::: https://github.com/StevenBlack/hosts
+
+===
+
+nixos-rebuild switch ((--install-bootloader))
   
 nix-env --list-generations --profile /nix/var/nix/profiles/system  
 gen 12 is safe  
