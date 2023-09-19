@@ -1,18 +1,10 @@
 # nixos  
 
   
-- Try adding this section below for hosts file config to my new nixos install found at::: https://github.com/StevenBlack/hosts  
-{  
-  networking.extraHosts = let  
-    hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;  
-    hostsFile = builtins.fetchurl hostsPath;  
-  in builtins.readFile "${hostsFile}";  
-}  
-
-===  
+- Hosts file config to my new nixos installs found at::: https://github.com/StevenBlack/hosts  
   
-Working nix for overwatch, note ((proton ge 8-2)) is the optimum for the non-mouse click to any loss of mouse after death / no steam instance running sweet spot for wayland...  
-sudo tar -xf GE-Proton*.tar.gz -C /home/j/.steam/root/compatibilitytools.d/  
+===    
+  
 
 ===  
   
