@@ -120,6 +120,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowInsecure = true;
   environment.systemPackages = with pkgs; [
+    nano
     discord
     firefox-wayland
     (pkgs.waybar.overridAttrs (oldAttrs:{
