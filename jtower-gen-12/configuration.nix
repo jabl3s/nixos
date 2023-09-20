@@ -8,20 +8,16 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 10;
-        };
       };
+    };
     plymouth = {
       enable = true;
       extraConfig = "DeviceScale=2";
-      };
+    };
     initrd = {
-      kernelModules          = [ "nvme" "ahci" ];
-      network                = {
-        enable = true;
-      };
-      systemd = {
-        enable   = true;
-      };
+      kernelModules = [ "nvme" "ahci" ];
+      network.enable = true;
+      systemd.enable   = true;
     };
     blacklistedKernelModules = [ "nouveau" "i915" ];
     kernelParams = [ "quiet" "nomodeset" ];
@@ -59,13 +55,6 @@
   xdg.portal.enable=true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services = {
-    #xserver = {
-    #enable               = true;
-    #videoDrivers = [ "nvidia" ];
-    #layout = "gb";
-    #xkbVariant = "";
-    #displayManager.sddm.enable = true;
-    #}
     dleyna-renderer.enable = false;
     dleyna-server.enable = false;
     power-profiles-daemon.enable = false;
@@ -77,8 +66,9 @@
         enable       = true;
         support32Bit = true;
       };
-      pulse  = { enable = true; };
+      pulse.enable = true;
     };
+  };
   # Configure console keymap
   console = {
     earlySetup = true;
@@ -171,14 +161,3 @@
     "autovt@tty1".enable = false;
   };
 }
-
-# Work around #159267
-#(pkgs.writeShellApplication {
-#  name = "discord";
-#  text = "${pkgs.discord}/bin/discord --use-gl=desktop";
-#})
-#(pkgs.makeDesktopItem {
-#  name = "discord";
-#  exec = "discord";
-#  desktopName = "Discord";
-#})
