@@ -112,7 +112,7 @@
     nano
     discord
     firefox-wayland
-    (pkgs.waybar.overridAttrs (oldAttrs:{
+    (pkgs.waybar.overrideAttrs (oldAttrs:{
     mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
     kitty
