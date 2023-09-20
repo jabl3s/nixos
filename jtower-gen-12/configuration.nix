@@ -42,7 +42,6 @@
     nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
     steam.enable = true;
     hyprland = {
-      hidpi = true;
       enable = true;
       nvidiaPatches = true;
       xwayland.enable = true;
