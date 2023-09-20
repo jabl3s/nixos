@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 { 
+  # Boot
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
@@ -29,17 +30,31 @@
     [
       ./hardware-configuration.nix
     ];
+  # Networking
   networking.extraHosts = let hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
   hostsFile = builtins.fetchurl hostsPath;
   in builtins.readFile "${hostsFile}";
   networking.hostName = "jtower";
-  # Enable networking
   networking.networkmanager.enable = true;
   networking.wireless.iwd.enable = true;
   # Set your time zone.
   time.timeZone = "Europe/London";
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
+  # Services and programs
+  programs = {
+    nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
+    steam.enable = true;
+    hyperland = {
+      enable = true;
+      nvidiaPatches = true;
+      xwayland.enable = true;
+    }
+  };
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  }
   services = {
     dleyna-renderer.enable = false;
     dleyna-server.enable = false;
@@ -73,6 +88,7 @@
   };
   # Enable sound with pipewire.
   sound.enable = true;
+  # Hardware
   hardware = {
     enableRedistributableFirmware = true;
     bluetooth.enable   = false;
@@ -145,14 +161,8 @@
       ];
     })
   ];
+  # System settings
   powerManagement.cpuFreqGovernor = "ondemand";
-  programs = {
-    nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
-    steam = {
-      enable     = true;
-      remotePlay = { openFirewall = true; };
-    };
-  };
   system.stateVersion = "23.05";
   systemd.services = {
     # https://github.com/NixOS/nixpkgs/issues/103746
