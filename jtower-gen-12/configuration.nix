@@ -55,6 +55,8 @@
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   }
+  xdg.portal.enable=true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services = {
     dleyna-renderer.enable = false;
     dleyna-server.enable = false;
@@ -116,25 +118,34 @@
   users.users.j = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      kate
-    ];
+    # packages = with pkgs; [];
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-     wget
+     discord
      # Work around #159267
-     (pkgs.writeShellApplication {
-       name = "discord";
-       text = "${pkgs.discord}/bin/discord --use-gl=desktop";
-     })
-     (pkgs.makeDesktopItem {
-       name = "discord";
-       exec = "discord";
-       desktopName = "Discord";
-     })
+     #(pkgs.writeShellApplication {
+     #  name = "discord";
+     #  text = "${pkgs.discord}/bin/discord --use-gl=desktop";
+     #})
+     #(pkgs.makeDesktopItem {
+     #  name = "discord";
+     #  exec = "discord";
+     #  desktopName = "Discord";
+     #})
+     (pkgs.waybar.overridAttrs (oldAttrs:{
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+     }))
+     kitty
+     rofi-wayland
+     firefox
+     swww
+     dunst
+     libnotify
+     wget
+     waybar
+     wayland
      solaar
      file
      unzip
