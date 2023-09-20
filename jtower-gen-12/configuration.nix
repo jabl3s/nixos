@@ -46,6 +46,7 @@
     nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
     steam.enable = true;
     hyperland = {
+      hidpi = true;
       enable = true;
       nvidiaPatches = true;
       xwayland.enable = true;
@@ -58,6 +59,13 @@
   xdg.portal.enable=true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services = {
+    #xserver = {
+    #enable               = true;
+    #videoDrivers = [ "nvidia" ];
+    #layout = "gb";
+    #xkbVariant = "";
+    #displayManager.sddm.enable = true;
+    #}
     dleyna-renderer.enable = false;
     dleyna-server.enable = false;
     power-profiles-daemon.enable = false;
@@ -70,18 +78,6 @@
         support32Bit = true;
       };
       pulse  = { enable = true; };
-    };    
-    xserver = {
-      enable               = true;
-      videoDrivers = [ "nvidia" ];
-      layout = "gb";
-      xkbVariant = "";
-      desktopManager.gnome = { enable = true; };
-      displayManager       = {
-        autoLogin  = { enable = true; user = "j"; };
-        gdm.enable = true;
-        };
-      };
     };
   # Configure console keymap
   console = {
@@ -122,55 +118,48 @@
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowInsecure = true;
   environment.systemPackages = with pkgs; [
-     discord
-     # Work around #159267
-     #(pkgs.writeShellApplication {
-     #  name = "discord";
-     #  text = "${pkgs.discord}/bin/discord --use-gl=desktop";
-     #})
-     #(pkgs.makeDesktopItem {
-     #  name = "discord";
-     #  exec = "discord";
-     #  desktopName = "Discord";
-     #})
-     (pkgs.waybar.overridAttrs (oldAttrs:{
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-     }))
-     kitty
-     rofi-wayland
-     firefox
-     swww
-     dunst
-     libnotify
-     wget
-     waybar
-     wayland
-     solaar
-     file
-     unzip
-     wl-clipboard
-     pciutils
-     usbutils
-     wol
-     lutris
-     wineWowPackages.staging
-     wineWowPackages.waylandFull
-     winetricks
-     git
-     (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        bbenoist.nix # syntax highlight for .nix files in vscode
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "search-crates-io";
-          publisher = "belfz";
-          version = "1.2.1";
-          sha256 = "sha256-K2H4OHH6vgQvhhcOFdP3RD0fPghAxxbgurv+N82pFNs=";
-          # sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        }
-      ];
-    })
+    discord
+    firefox-wayland
+    (pkgs.waybar.overridAttrs (oldAttrs:{
+    mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+    }))
+    kitty
+    rofi-wayland
+    firefox
+    swww
+    dunst
+    libnotify
+    wget
+    waybar
+    xwayland
+    wayland
+    solaar
+    file
+    unzip
+    wl-clipboard
+    pciutils
+    usbutils
+    wol
+    lutris
+    wineWowPackages.staging
+    wineWowPackages.waylandFull
+    winetricks
+    git
+    (vscode-with-extensions.override {
+    vscodeExtensions = with vscode-extensions; [
+      bbenoist.nix # syntax highlight for .nix files in vscode
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "search-crates-io";
+        publisher = "belfz";
+        version = "1.2.1";
+        sha256 = "sha256-K2H4OHH6vgQvhhcOFdP3RD0fPghAxxbgurv+N82pFNs=";
+        # sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      }
+    ];
+  })
   ];
   # System settings
   powerManagement.cpuFreqGovernor = "ondemand";
@@ -181,3 +170,14 @@
     "autovt@tty1".enable = false;
   };
 }
+
+# Work around #159267
+#(pkgs.writeShellApplication {
+#  name = "discord";
+#  text = "${pkgs.discord}/bin/discord --use-gl=desktop";
+#})
+#(pkgs.makeDesktopItem {
+#  name = "discord";
+#  exec = "discord";
+#  desktopName = "Discord";
+#})
