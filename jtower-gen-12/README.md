@@ -8,3 +8,8 @@ sudo tar -xf GE-Proton*.tar.gz -C /home/j/.steam/root/compatibilitytools.d/
 ===    
   
 Was wayland initially but now am using x. Which has diff graphical errors with steam...    
+  
+===  
+  
+hyprland remove the "monitor preffered auto auto comment"  
+add:::  bind=$mainMod, S, exec, rofi -show drun -show-icons
