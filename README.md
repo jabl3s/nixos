@@ -18,5 +18,7 @@ git add .
 git commit -m "whatever-comment"  
 git push origin main  
   
-
-
+===  
+  
+Retry with "force conmposition pipeline" not "force full composition pipeline" graphics config to avoid blackscreen...  
+See the xorg file for Xserver specific settings if not using wayland in other files section.   
