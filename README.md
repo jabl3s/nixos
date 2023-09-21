@@ -21,4 +21,4 @@ git push origin main
 ===  
   
 Retry with "force conmposition pipeline" not "force full composition pipeline" graphics config to avoid blackscreen...  
-See the xorg file for Xserver specific settings if not using wayland in other files section.   
+See the xorg file for Xserver specific settings, if not using wayland in othernotes section. Also, protonGE-8-2 to get mouse and no blackscreen sweet spot still applies to X as well as wayland.    
