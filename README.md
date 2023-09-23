@@ -13,4 +13,4 @@ nix-env --profile /nix/var/nix/profiles/system --delete-generations 1 2 3 4 5 6 
 ===  
   
 Retry with "force conmposition pipeline" not "force full composition pipeline" graphics config to avoid blackscreen...  
-See the xorg file for Xserver specific settings ((MISSING THE YB222 6-bit colour profile and such tho :c, forgot to snag it from pop os)), if not using wayland in othernotes section. Also, protonGE-8-2 to get mouse and no blackscreen sweet spot still applies to X as well as wayland.    
+See the xorg file for Xserver specific settings ((MISSING THE YB222 6-bit colour profile and such tho :c, forgot to snag it from pop os)), applies if not using wayland in othernotes section. Also, protonGE-8-2 to get mouse and no blackscreen sweet spot still applies to X as well as wayland.    
