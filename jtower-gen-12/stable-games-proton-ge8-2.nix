@@ -64,6 +64,8 @@
     };
     nvidia             = {
       modesetting.enable = true;
+      forceFullCompositionPipeline = true; 
+      # => pop os has forceCompositionPipeline no "full"
       nvidiaSettings  = true;
       powerManagement = {
         enable      = false;
