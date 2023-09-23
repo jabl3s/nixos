@@ -1,5 +1,5 @@
-# nixos  
-  
+# nixos  ((am currently running pop-os))  
+- Nix os on an intel x86_64 chipset with nvidia graphics is not great for games but had ow2 running at 144 fps on protonGE-8-2 with interesting setup bugs throughout entire process => return to pop-os for now... github .nix files arent in best shape need to revisit this at some point.     
 - Hosts file config to my new nixos installs found at::: https://github.com/StevenBlack/hosts
 
 === General clean up of nixos  
