@@ -4,14 +4,11 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 10;
         };
       };
     plymouth = {
       enable = true;
-      extraConfig = "DeviceScale=2";
+      extraConfig = "DeviceScale=1";
       };
     initrd = {
       kernelModules          = [ "nvme" "ahci" ];
@@ -86,6 +83,7 @@
     };
     nvidia             = {
       modesetting.enable = true;
+      forceCompositionPipeline = true; #NOT forceFullCompositionPipeline
       nvidiaSettings  = true;
       powerManagement = {
         enable      = false;
@@ -100,10 +98,6 @@
   users.users.j = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      kate
-    ];
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -119,6 +113,7 @@
        desktopName = "Discord";
      })
      firefox
+     kate
      file 
      unzip 
      wl-clipboard 
@@ -153,7 +148,6 @@
     nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
     steam = {
       enable     = true;
-      remotePlay = { openFirewall = true; };
     };
   };
   system.stateVersion = "23.05";
