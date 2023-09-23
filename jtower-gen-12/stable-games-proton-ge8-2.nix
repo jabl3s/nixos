@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-{ 
+{ # Not the exact gen 12 conf...  
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
