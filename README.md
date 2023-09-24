@@ -5,7 +5,10 @@
 - ``` Bash
   sudo nano /etc/nixos/configuration.nix
   ```
-- ``` nixos-rebuild switch ``` ((Doesnt always require reboot unless kernel or app version))
+- ``` Bash
+  nixos-rebuild switch
+  ```
+  ((Doesnt always require reboot unless kernel or app version))
 
 === General clean up of nixos  
   
