@@ -137,6 +137,7 @@
     sshpass
     (python3.withPackages(ps: with ps; [
       tk
+      tkinter
       pandas
       requests
       numpy
