@@ -135,7 +135,8 @@
   environment.systemPackages = with pkgs; [
     tmux
     sshpass
-    (python3.withPackages(ps: with ps; [       
+    (python3.withPackages(ps: with ps; [
+      tk
       pandas
       requests
       numpy
