@@ -37,3 +37,6 @@ If you want to make the change permanent, you can add the shopt command to your 
 ``` bash
 echo "shopt -s dotglob" >> ~/.bashrc
 ```
+```  bash
+nix run nixpkgs#betterdiscordctl install --extra-experimental-features nix-command --extra-experimental-features flakes
+```  
