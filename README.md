@@ -10,7 +10,7 @@
   ```
 - ```
   mv /etc/nixos/nixos/.* /etc/nixos/
-  mv /etc/nixos/nixos/.* /etc/nixos/
+  mv /etc/nixos/nixos/* /etc/nixos/
   ```
   ((should catch hidden no dotglob mod hehe))
 - 1) ``` sudo su - ```
