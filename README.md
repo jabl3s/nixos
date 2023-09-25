@@ -8,7 +8,7 @@
 - ``` Bash
   nixos-rebuild switch
   ```
-- ``` sudo shopt -s dotglob; mv /etc/nixos/nixos/* /etc/nixos/ ``` (())
+- ``` mv -R /etc/nixos/nixos/* /etc/nixos/ ``` ((should catch hidden no dotglob mod hehe))
 - 1) ``` sudo su - ```
 - 2) ``` code /etc/nixos --no-sandbox --user-data-dir /home/j ```
   ((Doesnt always require reboot unless kernel or app version))
