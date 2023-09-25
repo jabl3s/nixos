@@ -8,11 +8,15 @@
 - ``` Bash
   nixos-rebuild switch
   ```
-- ``` mv -R /etc/nixos/nixos/* /etc/nixos/ ``` ((should catch hidden no dotglob mod hehe))
+  ((Doesnt always require reboot unless kernel or app version))
+- ```
+  mv /etc/nixos/nixos/.* /etc/nixos/
+  mv /etc/nixos/nixos/* /etc/nixos/
+  ```
+  ((should catch hidden no dotglob mod hehe))
 - 1) ``` sudo su - ```
 - 2) ``` code /etc/nixos --no-sandbox --user-data-dir /home/j ```
-  ((Doesnt always require reboot unless kernel or app version))
-
+  
 === General clean up of nixos  
   
 nix-env --list-generations --profile /nix/var/nix/profiles/system  
