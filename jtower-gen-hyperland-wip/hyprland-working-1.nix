@@ -84,6 +84,7 @@
   xdg.portal.enable=true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   programs = {
+    sway.enable = true;
     nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
     steam.enable = true;
     hyprland = {
