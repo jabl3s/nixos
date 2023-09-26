@@ -1,3 +1,4 @@
+
 { config, pkgs, ... }:
 {
   imports =
@@ -33,9 +34,6 @@
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; #Discord in wayland
-  };
   sound.enable = true;
   hardware = {
     enableRedistributableFirmware = true;
@@ -62,17 +60,6 @@
     pulseaudio.enable = false;
   };
   services.openssh.enable = true;
-  services.xserver = {
-    enable               = true;
-    videoDrivers = [ "nvidia" ];
-    layout = "gb";
-    xkbVariant = "";
-    desktopManager.gnome = { enable = true; };
-    displayManager       = {
-      autoLogin  = { enable = true; user = "j"; };
-      gdm.enable = true;
-    };
-  };  
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
@@ -80,18 +67,47 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  services.xserver = {
+    enable               = true;
+    videoDrivers = [ "nvidia" ];
+    layout = "gb";
+    xkbVariant = "";
+    displayManager       = {
+      autoLogin  = { enable = true; user = "j"; };
+      gdm.enable = true;
+    };
+  };
+  services.gvfs.enable = true ;
+  services.tumbler.enable = true;  
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+  xdg.portal.enable=true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  programs = {
+    thunar.enable = true;
+    nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
+    steam.enable = true;
+    hyprland = {
+      enable = true;
+      nvidiaPatches = true;
+      xwayland.enable = true;
+    };
+  };
   users.users.j = { # Define a user account. Don't forget to set a password with ‘passwd’ from nixos-enter.
     isNormalUser = true;
     description = "j";
     extraGroups = [ "networkmanager" "wheel" ];
   };
-  nixpkgs.config.allowUnfree = true;
-  programs.steam.enable = true;
+  nixpkgs.config.allowUnfree = true;  
   environment.systemPackages = with pkgs; [
   # Base
-    networkmanager iwd libnotify xwayland wayland
-    pciutils usbutils wget file unzip 
-    wl-clipboard wol wmctrl solaar
+    networkmanager networkmanagerapplet iwd libnotify xwayland wayland
+    pciutils usbutils wget file unzip gimp  
+    wl-clipboard wol wmctrl solaar konsole
+    (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
+    rofi-wayland swww dunst kitty
   # Development
     tmux sshpass git
     (python3.withPackages(ps: with ps; [       
@@ -111,8 +127,7 @@
         version = "0.47.2";
         sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
       }];})
-    ## Beeware dependencies
-    build-essential pkg-config python3-dev python3-venv libgirepository1.0-dev libcairo2-dev gir1.2-webkit2-4.0 libcanberra-gtk3-module
+    ## Beeware dependencies libgirepository1.0-dev gir1.2-webkit2-4.0 build-essential pkg-config python3-dev python3-venv libcairo2-dev libcanberra-gtk3-module
   # Gaming
     lutris firefox-wayland discord wineWowPackages.staging wineWowPackages.waylandFull
     winetricks
