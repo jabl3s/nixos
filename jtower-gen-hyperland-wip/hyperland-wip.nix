@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
 
-{ 
-  # Boot
+{ config, pkgs, ... }:
+{
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
@@ -12,7 +15,7 @@
     };
     plymouth = {
       enable = true;
-      extraConfig = "DeviceScale=2";
+      extraConfig = "DeviceScale=1";
     };
     initrd = {
       kernelModules = [ "nvme" "ahci" ];
@@ -22,60 +25,16 @@
     blacklistedKernelModules = [ "nouveau" "i915" ];
     kernelParams = [ "quiet" "nomodeset" ];
   };
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-  # Networking
+  security.rtkit.enable = true;
+  console = { earlySetup = true; keyMap = "uk"; };
   networking.extraHosts = let hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
   hostsFile = builtins.fetchurl hostsPath;
   in builtins.readFile "${hostsFile}";
   networking.hostName = "jtower";
   networking.networkmanager.enable = true;
-  networking.wireless.iwd.enable = true;
-  # Set your time zone.
   time.timeZone = "Europe/London";
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-  # Services and programs
-  programs = {
-    nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
-    steam.enable = true;
-    hyprland = {
-      enable = true;
-      nvidiaPatches = true;
-      xwayland.enable = true;
-    };
-  };
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-  xdg.portal.enable=true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  services = {
-    dleyna-renderer.enable = false;
-    dleyna-server.enable = false;
-    power-profiles-daemon.enable = false;
-    telepathy.enable = false;
-    printing.enable = true;
-    pipewire = {
-      enable = true;
-      alsa   = {
-        enable       = true;
-        support32Bit = true;
-      };
-      pulse.enable = true;
-    };
-  };
-  # Configure console keymap
-  console = {
-    earlySetup = true;
-    keyMap = "uk";
-  };
-  # Enable sound with pipewire.
   sound.enable = true;
-  # Hardware
   hardware = {
     enableRedistributableFirmware = true;
     bluetooth.enable   = false;
@@ -89,74 +48,99 @@
     };
     nvidia             = {
       modesetting.enable = true;
+      forceFullCompositionPipeline = true; #=>pop os has forceCompositionPipeline no "full"
       nvidiaSettings  = true;
       powerManagement = {
-        enable      = false;
+        enable      = true;
         finegrained = false;
       };
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
-    pulseaudio         = { enable = false; };
+    pulseaudio.enable = false;
   };
-  security.rtkit.enable = true;
-  users.users.j = {
+  services.openssh.enable = true;
+  services.printing.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+  services.xserver = {
+    enable               = true;
+    videoDrivers = [ "nvidia" ];
+    layout = "gb";
+    xkbVariant = "";
+    displayManager       = {
+      autoLogin  = { enable = true; user = "j"; };
+      gdm.enable = true;
+    };
+  };  
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+  xdg.portal.enable=true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  programs = {
+    nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
+    steam.enable = true;
+    hyprland = {
+      enable = true;
+      nvidiaPatches = true;
+      xwayland.enable = true;
+    };
+  };
+  users.users.j = { # Define a user account. Don't forget to set a password with ‘passwd’ from nixos-enter.
     isNormalUser = true;
+    description = "j";
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [];
   };
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowInsecure = true;
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
-    nano
-    discord
-    firefox-wayland
-    (pkgs.waybar.overrideAttrs (oldAttrs:{
-    mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    }))
-    kitty
-    rofi-wayland
-    firefox
-    swww
-    dunst
-    libnotify
-    wget
-    waybar
-    xwayland
-    wayland
-    solaar
-    file
-    unzip
-    wl-clipboard
-    pciutils
-    usbutils
-    wol
-    lutris
-    wineWowPackages.staging
-    wineWowPackages.waylandFull
+  # Base
+    networkmanager iwd libnotify xwayland wayland
+    pciutils usbutils wget file unzip 
+    wl-clipboard wol wmctrl solaar
+    (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
+    rofi-wayland swww dunst waybar
+  # Development
+    tmux sshpass git
+    (python3.withPackages(ps: with ps; [       
+      tk tkinter pandas requests numpy
+      pendulum pillow moviepy pyqt5 pyqt6
+      pytest #briefcase
+      ]))
+     (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+      bbenoist.nix
+      ms-python.python
+      ms-azuretools.vscode-docker
+      ms-vscode-remote.remote-ssh
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+        name = "remote-ssh-edit";
+        publisher = "ms-vscode-remote";
+        version = "0.47.2";
+        sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+      }];})
+    ## Beeware dependencies
+    build-essential pkg-config python3-dev python3-venv libgirepository1.0-dev libcairo2-dev gir1.2-webkit2-4.0 libcanberra-gtk3-module
+  # Gaming
+    lutris firefox-wayland discord wineWowPackages.staging wineWowPackages.waylandFull
     winetricks
-    git
-    (vscode-with-extensions.override {
-    vscodeExtensions = with vscode-extensions; [
-      bbenoist.nix # syntax highlight for .nix files in vscode
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "search-crates-io";
-        publisher = "belfz";
-        version = "1.2.1";
-        sha256 = "sha256-K2H4OHH6vgQvhhcOFdP3RD0fPghAxxbgurv+N82pFNs=";
-        # sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-      }
-    ];
-  })
   ];
-  # System settings
-  powerManagement.cpuFreqGovernor = "ondemand";
-  system.stateVersion = "23.05";
+   programs.mtr.enable = true;
+   programs.gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+   };
+  system.stateVersion = "23.05"; # Did you read the comment?
   systemd.services = {
     # https://github.com/NixOS/nixpkgs/issues/103746
     "getty@tty1".enable  = false;
     "autovt@tty1".enable = false;
   };
+  powerManagement.cpuFreqGovernor = "ondemand";
 }
