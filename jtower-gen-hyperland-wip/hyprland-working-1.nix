@@ -76,7 +76,9 @@
       autoLogin  = { enable = true; user = "j"; };
       gdm.enable = true;
     };
-  };  
+  };
+  services.gvfs.enable = true ;
+  services.tumbler.enable = true;  
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -84,6 +86,7 @@
   xdg.portal.enable=true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   programs = {
+    thunar.enable = true;
     nix-ld.enable = true; # https://unix.stackexchange.com/a/522823
     steam.enable = true;
     hyprland = {
@@ -100,8 +103,8 @@
   nixpkgs.config.allowUnfree = true;  
   environment.systemPackages = with pkgs; [
   # Base
-    networkmanager iwd libnotify xwayland wayland
-    pciutils usbutils wget file unzip 
+    networkmanager networkmanagerapplet iwd libnotify xwayland wayland
+    pciutils usbutils wget file unzip gimp  
     wl-clipboard wol wmctrl solaar konsole
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
     rofi-wayland swww dunst kitty
