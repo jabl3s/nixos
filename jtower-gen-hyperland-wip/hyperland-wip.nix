@@ -103,9 +103,9 @@
   # Base
     networkmanager iwd libnotify xwayland wayland
     pciutils usbutils wget file unzip 
-    wl-clipboard wol wmctrl solaar
+    wl-clipboard wol wmctrl solaar konsole
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
-    rofi-wayland swww dunst waybar
+    rofi-wayland swww dunst kitty
   # Development
     tmux sshpass git
     (python3.withPackages(ps: with ps; [       
