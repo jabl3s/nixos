@@ -7,3 +7,7 @@ add:::  bind=$mainMod, S, exec, rofi -show drun -show-icons
 https://www.youtube.com/watch?v=61wGzIv12Ds  
   
 ((if following video from Ctrl+Alt+F2 then sub /home/j for ~ cus am root))  
+
+((If windows can be moved with mouse add to hyperland conf below for ALT + mouse window movement))
+bindm=ALT,mouse:272,movewindow
+bindm=ALT,mouse:273,resizewindow
