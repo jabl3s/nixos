@@ -5,7 +5,7 @@
 .  
 .  
 see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development  
-==> (1) https://soundux.rocks/  (2) https://github.com/noisetorch/NoiseTorch  (3) https://github.com/wwmm/easyeffects  
+==> (1-soundboard cus y not) https://soundux.rocks/  (2-noise cancel across all programs) https://github.com/noisetorch/NoiseTorch  (3-pipewire controls) https://github.com/wwmm/easyeffects  
 .  
 .    
 ## === OLD SETUP WITH GNOME ===     
