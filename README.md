@@ -4,6 +4,9 @@
 .  
 .  
 .  
+see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development    
+.  
+.    
 ## === OLD SETUP WITH GNOME ===     
 ![current setup](./images/nixcurrent.png)
 - Nix os on an intel x86_64 chipset with nvidia graphics is not great for games but had ow2 running at 144 fps on protonGE-8-2 with interesting setup bugs throughout entire process => no return to pop-os for now using jtowergen12 .nix for gamez n code.     
@@ -34,8 +37,6 @@ nix-env --profile /nix/var/nix/profiles/system --delete-generations 1 2 3 4 5 6 
   
 Retry with "force composition pipeline" not "force full composition pipeline" graphics config to avoid blackscreen, but for now am using full...  
 See the xorg file for Xserver specific settings ((MISSING THE YB222 6-bit colour profile and such tho :c, forgot to snag it from pop os)), xorg config applies if not using wayland but might cross-over need to fig this part out. Also, protonGE-8-2 to get mouse and no blackscreen sweet spot still applies to X as well as wayland. Having full force pipeline gives buttery smooth experience with next to no graphical errors so far in gnome, but not in plasma5/kde so remember when returning back to gnome run ``` dconf reset /org/gnome/desktop/interface/cursor-theme ``` if cursor is a white box bug.       
-
-see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development  
   
 ===  
   
