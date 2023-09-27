@@ -1,6 +1,6 @@
 # nixos - see hyprland for current setup...  
 ## Hyprland: consistent 240fps 1 white dot protonGE8-16.  
-### ((feature reqeust of obs to capture workspaces, I use 3 workspace layouts, gaming (fullscreen), social (discord,firefox) and dev (vscode, kitty/shell firefox), need social and dev capture and probs no social workspace capture.))        
+### ((feature reqeust of obs to capture workspaces, I use 3 workspace, gaming (fullscreen), social (discord,firefox) and dev (vscode, kitty/shell, firefox), need gaming and dev workspace capture and probs no social workspace capture.))        
 ![current setup](./images/nixcurrent.png)
 - Nix os on an intel x86_64 chipset with nvidia graphics is not great for games but had ow2 running at 144 fps on protonGE-8-2 with interesting setup bugs throughout entire process => no return to pop-os for now using jtowergen12 .nix for gamez n code.     
 - Hosts file config to my new nixos installs found at::: https://github.com/StevenBlack/hosts
