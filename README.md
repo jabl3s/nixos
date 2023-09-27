@@ -5,7 +5,7 @@
 .  
 .  
 see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development  
-==> https://soundux.rocks/  https://github.com/noisetorch/NoiseTorch  https://github.com/wwmm/easyeffects  
+==> (1) https://soundux.rocks/  (2) https://github.com/noisetorch/NoiseTorch  (3) https://github.com/wwmm/easyeffects  
 .  
 .    
 ## === OLD SETUP WITH GNOME ===     
