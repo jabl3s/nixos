@@ -12,9 +12,9 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 .  
 .  
 ## nixos security:  
-I have polkit (rate limit?) and ssh (server+agent) enabled, perhaps jus ssh-agent needed :accessibility:    
-wayland graphics is secure protocol vs x 👍 so long as :accessibility: isnt compromised above. 
-no encrypted drive might have plain text pass...  
+1) I have polkit (rate limit?) and ssh (server+agent) enabled, perhaps jus ssh-agent needed :accessibility:    
+2) wayland graphics is secure protocol vs x 👍 so long as :accessibility: isnt compromised above.   
+3) no encrypted drive might have plain text pass...  
 .  
 .  
 .  
