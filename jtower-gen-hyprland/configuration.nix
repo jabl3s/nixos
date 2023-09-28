@@ -26,7 +26,7 @@
     kernelParams = [ "quiet" "nomodeset" ];
   };
   security.rtkit.enable = true;
-  security.polkit.enable
+  security.polkit.enable = true;
   console = { earlySetup = true; keyMap = "uk"; };
   networking.extraHosts = let hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
   hostsFile = builtins.fetchurl hostsPath;
