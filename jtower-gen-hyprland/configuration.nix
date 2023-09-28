@@ -104,7 +104,7 @@
   nixpkgs.config.allowUnfree = true;  
   environment.systemPackages = with pkgs; [
   # Base
-    networkmanager networkmanagerapplet iwd libnotify xwayland wayland
+    networkmanager networkmanagerapplet iwd libnotify xwayland wayland openssh-client
     pciutils usbutils wget file unzip gimp alsa-utils polkit-kde-agent  
     wl-clipboard wol wmctrl solaar konsole soundux noisetorch easyeffects
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
