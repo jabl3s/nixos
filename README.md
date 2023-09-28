@@ -42,7 +42,7 @@ nix-collect-garbage -d
   mv /etc/nixos/nixos/.* /etc/nixos/
   mv /etc/nixos/nixos/* /etc/nixos/
   ```
-  ((should catch hidden no dotglob mod hehe))
+  ((should catch hidden no dotglob mod, fun name hehe))  
 - 1) ``` sudo su - ```
 - 2) ``` code /etc/nixos --no-sandbox --user-data-dir /home/j ```
   
