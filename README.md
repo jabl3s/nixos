@@ -12,7 +12,7 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 .  
 .  
 ## nixos security:  
-I have polkit nd ssh enabled  
+I have polkit and ssh enabled  
 .  
 .  
 .  
