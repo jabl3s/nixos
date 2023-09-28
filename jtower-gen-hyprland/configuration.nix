@@ -101,7 +101,7 @@
     hyprland = {
       enable = true;
       nvidiaPatches = true;
-      xwayland.enable = true;
+      xwayland.enable = true; # x translation layer
     };
   };
   users.users.j = { # Define a user account. Don't forget to set a password with ‘passwd’ from nixos-enter.
