@@ -12,7 +12,7 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 .  
 .  
 ## nixos security:  
-I have polkit and ssh (server+agent) enabled, perhaps jus agent needed :accessibility:    
+I have polkit (rate limit?) and ssh (server+agent) enabled, perhaps jus ssh-agent needed :accessibility:    
 wayland graphics is secure protocol vs x 👍 so long as :accessibility: isnt compromised above.   
 .  
 .  
