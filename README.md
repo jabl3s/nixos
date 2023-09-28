@@ -9,9 +9,13 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 ==> (1-soundboard cus y not) https://soundux.rocks/  (2-noise cancel across all programs) https://github.com/noisetorch/NoiseTorch  (3-pipewire controls) https://github.com/wwmm/easyeffects  
 (for now max gain lower lower output vol should effectively noise cancel - allout) (sound ^ some exp divide by fixed val factor vs superimposed back noise program), since noisetorch is expecting pulseaudio and im going alsa it wont suffice will just increase gain in easyeffects reduce output,,, => easyeffects has noise reduction effect lul   
 .  
+.  
+.  
 ## nixos security:  
 I have polkit nd ssh enabled  
-.    
+.  
+.  
+.  
 ## === OLD SETUP WITH GNOME ===     
 ![current setup](./images/nixcurrent.png)
 - Nix os on an intel x86_64 chipset with nvidia graphics is not great for games but had ow2 running at 144 fps on protonGE-8-2 with interesting setup bugs throughout entire process => no return to pop-os for now using jtowergen12 .nix for gamez n code.     
