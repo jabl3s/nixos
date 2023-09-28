@@ -112,17 +112,17 @@
   nixpkgs.config.allowUnfree = true;  
   environment.systemPackages = with pkgs; [
   # Base
-    networkmanager networkmanagerapplet iwd libnotify xwayland wayland openssh-client
+    networkmanager networkmanagerapplet iwd libnotify xwayland wayland
     pciutils usbutils wget file unzip gimp alsa-utils polkit-kde-agent sshguard 
     wl-clipboard wol wmctrl solaar konsole soundux noisetorch easyeffects
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
     rofi-wayland swww dunst kitty
   # Development
-    tmux sshpass git lxpolkit
+    tmux sshpass git
     (python3.withPackages(ps: with ps; [       
       tk tkinter pandas requests numpy
       pendulum pillow moviepy pyqt5 pyqt6
-      pytest #briefcas
+      pytest #briefcase
       ]))
      (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
@@ -131,7 +131,7 @@
       ms-azuretools.vscode-docker
       ms-vscode-remote.remote-ssh
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-        name = "remote-ssh-edit";
+        name = "remote-ssh-edit"; ###check ssh repo here
         publisher = "ms-vscode-remote";
         version = "0.47.2";
         sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
