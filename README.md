@@ -18,6 +18,13 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 .  
 .  
 .  
+## Useful commands  
+``` bash
+nix-collect-garbage -d
+```
+.  
+.  
+.  
 ## === OLD SETUP WITH GNOME ===     
 ![current setup](./images/nixcurrent.png)
 - Nix os on an intel x86_64 chipset with nvidia graphics is not great for games but had ow2 running at 144 fps on protonGE-8-2 with interesting setup bugs throughout entire process => no return to pop-os for now using jtowergen12 .nix for gamez n code.     
