@@ -13,7 +13,7 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 .  
 ## nixos security:  
 1) I have polkit (rate limit?) and ssh (server+agent) enabled, perhaps jus ssh-agent needed :accessibility:    
-2) wayland graphics is secure protocol vs x 👍 so long as :accessibility: isnt compromised above. However, x translation layer in my conf for stea, vscode... firefox seems full wayland.       
+2) wayland graphics is secure protocol vs x 👍 so long as :accessibility: isnt compromised above. However, x translation layer in my conf for steam, vscode... firefox seems full wayland.        
 3) no encrypted drive might have plain text pass...
 4) see: https://svn.python.org/www/trunk/pydotorg/pycon/papers/conch.html from https://hackage.haskell.org/package/ssh => can give haskell a try have done some f# ocaml in the past and enjoyed those, plus seems cleaner then python for this functional use-case... No oop needed. see here: https://search.nixos.org/packages?channel=23.05&show=haskellPackages.ssh&from=0&size=50&sort=relevance&type=packages&query=ssh ((==> nixos configuration tab, should prevent client reverse ssh))
 5) rebuild switch, delete prior gens, dc cmos psu ram hold power button + spam it however long, reinsert ram from 4 taken into 4 empty, reboot into new system.  
