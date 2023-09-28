@@ -14,7 +14,8 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 ## nixos security:  
 1) I have polkit (rate limit?) and ssh (server+agent) enabled, perhaps jus ssh-agent needed :accessibility:    
 2) wayland graphics is secure protocol vs x 👍 so long as :accessibility: isnt compromised above. However, x translation layer in my conf...     
-3) no encrypted drive might have plain text pass...  
+3) no encrypted drive might have plain text pass...
+4) see: https://svn.python.org/www/trunk/pydotorg/pycon/papers/conch.html from https://hackage.haskell.org/package/ssh   
 .  
 .  
 .  
