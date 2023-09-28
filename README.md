@@ -6,7 +6,8 @@
 .  
 see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development  
 ==> (1-soundboard cus y not) https://soundux.rocks/  (2-noise cancel across all programs) https://github.com/noisetorch/NoiseTorch  (3-pipewire controls) https://github.com/wwmm/easyeffects  
-(for now max gain lower lower output vol should effectively noise cancel - allout) (sound ^ some exp divide by fixed val factor vs superimposed back noise program), since noisetorch is expecting pulseaudio and im going alsa it wont suffice will just increase gain in easyeffects reduce output.    
+(for now max gain lower lower output vol should effectively noise cancel - allout) (sound ^ some exp divide by fixed val factor vs superimposed back noise program), since noisetorch is expecting pulseaudio and im going alsa it wont suffice will just increase gain in easyeffects reduce output,,, it has easyeffects has noise reduction effect xD  
+.  
 .  
 .    
 ## === OLD SETUP WITH GNOME ===     
