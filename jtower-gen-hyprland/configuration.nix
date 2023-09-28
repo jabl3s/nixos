@@ -31,6 +31,14 @@
   networking.extraHosts = let hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
   hostsFile = builtins.fetchurl hostsPath;
   in builtins.readFile "${hostsFile}";
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 80 443 ];
+    allowedUDPPortRanges = [
+      { from = 4000; to = 4007; }
+      { from = 8000; to = 8010; }
+    ];
+  };
   networking.hostName = "jtower";
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/London";
@@ -60,7 +68,7 @@
     };
     pulseaudio.enable = false;
   };
-  ### services.openssh.enable = true;
+  services.openssh.enable = false;
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
@@ -68,7 +76,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  services.xserver = {
+  services.xserver = { # xorg
     enable               = true;
     videoDrivers = [ "nvidia" ];
     layout = "gb";
