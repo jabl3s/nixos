@@ -20,6 +20,7 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 .  
 .  
 ## Useful commands  
+Phill:  
 ``` bash
 nix-collect-garbage -d
 ```
