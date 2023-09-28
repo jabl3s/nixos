@@ -6,7 +6,7 @@
 .  
 see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development  
 ==> (1-soundboard cus y not) https://soundux.rocks/  (2-noise cancel across all programs) https://github.com/noisetorch/NoiseTorch  (3-pipewire controls) https://github.com/wwmm/easyeffects  
-(for now max gain lower lower output vol should effectively noise cancel) (sound to some exp divide by fixed val factor) -ish
+(for now max gain lower lower output vol should effectively noise cancel) (sound to some exp divide by fixed val factor) -ish  
 .  
 .    
 ## === OLD SETUP WITH GNOME ===     
