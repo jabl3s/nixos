@@ -26,6 +26,7 @@
     kernelParams = [ "quiet" "nomodeset" ];
   };
   security.rtkit.enable = true;
+  security.polkit.enable
   console = { earlySetup = true; keyMap = "uk"; };
   networking.extraHosts = let hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
   hostsFile = builtins.fetchurl hostsPath;
@@ -104,16 +105,16 @@
   environment.systemPackages = with pkgs; [
   # Base
     networkmanager networkmanagerapplet iwd libnotify xwayland wayland
-    pciutils usbutils wget file unzip gimp  
-    wl-clipboard wol wmctrl solaar konsole
+    pciutils usbutils wget file unzip gimp alsa-utils polkit-kde-agent  
+    wl-clipboard wol wmctrl solaar konsole soundux noisetorch easyeffects
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
     rofi-wayland swww dunst kitty
   # Development
-    tmux sshpass git
+    tmux sshpass git lxpolkit
     (python3.withPackages(ps: with ps; [       
       tk tkinter pandas requests numpy
       pendulum pillow moviepy pyqt5 pyqt6
-      pytest #briefcase
+      pytest #briefcas
       ]))
      (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
