@@ -60,7 +60,7 @@
     };
     pulseaudio.enable = false;
   };
-  services.openssh.enable = true;
+  ### services.openssh.enable = true;
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
