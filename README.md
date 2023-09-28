@@ -16,7 +16,8 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 2) wayland graphics is secure protocol vs x 👍 so long as :accessibility: isnt compromised above. However, x translation layer in my conf for steam, vscode... firefox seems full wayland.        
 3) no encrypted drive might have plain text pass...
 4) see: https://svn.python.org/www/trunk/pydotorg/pycon/papers/conch.html from https://hackage.haskell.org/package/ssh => can give haskell a try have done some f# ocaml in the past and enjoyed those, plus seems cleaner then python for this functional use-case... No oop needed. see here: https://search.nixos.org/packages?channel=23.05&show=haskellPackages.ssh&from=0&size=50&sort=relevance&type=packages&query=ssh ((==> nixos configuration tab, should prevent client reverse ssh))
-5) rebuild switch, delete prior gens, dc cmos psu ram hold power button + spam it however long, reinsert ram from 4 taken into 4 empty, reboot into new system.  
+5) rebuild switch, delete prior gens, dc cmos psu ram hold power button + spam it however long, reinsert ram from 4 taken into 4 empty, reboot into new system.
+6) Hosts file config to my new nixos installs found at, additinal stuff to essentially what is 127.0.0.1 protection, see phase_projects dev on how someone might use this to expose stuff not just use for brackets dev or wtvs I was doing in phaser 3 yrs ago with a node server on localhost::: https://github.com/StevenBlack/hosts  
 .  
 .  
 .  
@@ -35,7 +36,6 @@ nix-env --profile /nix/var/nix/profiles/system --delete-generations 1 2 3 4 5 6 
 ## === OLD SETUP WITH GNOME ===     
 ![current setup](./images/nixcurrent.png)
 - Nix os on an intel x86_64 chipset with nvidia graphics is not great for games but had ow2 running at 144 fps on protonGE-8-2 with interesting setup bugs throughout entire process => no return to pop-os for now using jtowergen12 .nix for gamez n code.     
-- Hosts file config to my new nixos installs found at::: https://github.com/StevenBlack/hosts
 - ``` Bash
   sudo nano /etc/nixos/configuration.nix
   ```
