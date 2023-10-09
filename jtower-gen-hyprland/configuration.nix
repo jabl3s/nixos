@@ -8,10 +8,10 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 10;
-      };
+      #systemd-boot = {
+        #enable = true;
+        #configurationLimit = 10;
+      #};
     };
     plymouth = {
       enable = true;
@@ -147,10 +147,5 @@
      enableSSHSupport = true;
    };
   system.stateVersion = "23.05"; # Did you read the comment?
-  systemd.services = {
-    # https://github.com/NixOS/nixpkgs/issues/103746
-    "getty@tty1".enable  = false;
-    "autovt@tty1".enable = false;
-  };
   powerManagement.cpuFreqGovernor = "ondemand";
 }
