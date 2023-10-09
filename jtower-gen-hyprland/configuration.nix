@@ -8,10 +8,6 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      #systemd-boot = {
-        #enable = true;
-        #configurationLimit = 10;
-      #};
     };
     plymouth = {
       enable = true;
@@ -35,8 +31,7 @@
     enable = true;
     allowedTCPPorts = [ 80 443 ];
     allowedUDPPortRanges = [
-      { from = 4000; to = 4007; }
-      { from = 8000; to = 8010; }
+      { from = 3000; to = 9000; }
     ];
   };
   networking.hostName = "jtower";
