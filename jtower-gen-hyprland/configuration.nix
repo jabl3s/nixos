@@ -5,10 +5,15 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-    };
+    # Bootloader.
+    boot = {
+      loader = {
+        efi.canTouchEfiVariables = true;
+        systemd-boot = {
+          enable = true;
+          configurationLimit = 10;
+        };
+      };
     plymouth = {
       enable = true;
       extraConfig = "DeviceScale=1";
