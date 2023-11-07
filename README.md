@@ -3,7 +3,7 @@ Try using: https://mynixos.com/
 # 1) nixos remote server install -  
 Setup nixos via ssh using nixos-anyhere and a provided configuration.nix with diskio using zfs partitioning...  
 # 2) nixos for development, games & stream - 
-see jtower-gen-hyprland for current development, games & stream setup; dev: dev in python seems fine for now issues with non extensible solumes or something when developing games issues may arise, gamming: consistent 240 fps with protonGE8-16 in most games, stream: black screen most things.  
+See jtower-gen-hyprland for current development, games & stream setup working configuration.nix; dev: dev in python seems fine for now issues with non extensible solumes or something when developing games issues may arise, gamming: consistent 240 fps with protonGE8-16 in most games, stream: black screen most things.  
 ((might submit feature reqeust of obs to capture workspaces, I use 3 workspace, gaming (fullscreen), social (discord,firefox) and dev (vscode, kitty/shell, firefox), need gaming and dev workspace capture and probs no social workspace capture.))    
 .  
 .  
