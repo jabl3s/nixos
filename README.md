@@ -1,6 +1,8 @@
 Try using: https://mynixos.com/  
 .  
-# nixos for development, games & stream - 
+# 1) nixos remote install -  
+attempt to install nixos via ssh using nixos-anyhere and diskio...  
+# 2) nixos for development, games & stream - 
 see jtower-gen-hyprland for current development, games & stream setup...  
 ## Hyprland: consistent 240fps 1 white dot protonGE8-16.  
 ### ((feature reqeust of obs to capture workspaces, I use 3 workspace, gaming (fullscreen), social (discord,firefox) and dev (vscode, kitty/shell, firefox), need gaming and dev workspace capture and probs no social workspace capture.))    
