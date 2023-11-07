@@ -66,7 +66,7 @@ nix-env --profile /nix/var/nix/profiles/system --delete-generations 1 2 3 4 5 6 
 Retry with "force composition pipeline" not "force full composition pipeline" graphics config to avoid blackscreen, but for now am using full...  
 See the xorg file for Xserver specific settings ((MISSING THE YB222 6-bit colour profile and such tho :c, forgot to snag it from pop os)), xorg config applies if not using wayland but might cross-over need to fig this part out with the whole xwayland translation layer thing going on, hyprland frees some of this with firefox but steam vscode n such seems to be using translation. Also, protonGE-8-2 to get mouse and no blackscreen sweet spot still applies to X as well as wayland. Having full force pipeline gives buttery smooth experience with next to no graphical errors so far in gnome, but not in plasma5/kde so remember when returning back to gnome run ``` dconf reset /org/gnome/desktop/interface/cursor-theme ``` if cursor is a white box bug.       
   
-===  
+## === Other non-sense ===    
   
 If you want to make the change permanent, you can add the shopt command to your shell's   configuration file. For example, if you are using the Bash shell, you can add it to your   
 ~/.bashrc file:  
