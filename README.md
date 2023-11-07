@@ -1,6 +1,6 @@
 Try using: https://mynixos.com/  
 .  
-# 1) nixos remote install -  
+# 1) nixos remote server install -  
 attempt to install nixos via ssh using nixos-anyhere and diskio...  
 # 2) nixos for development, games & stream - 
 see jtower-gen-hyprland for current development, games & stream setup...  
