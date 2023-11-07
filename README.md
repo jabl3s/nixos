@@ -1,4 +1,6 @@
-# nixos - see jtower-gen-hyprland for current setup...  
+Try using: https://mynixos.com/  
+.  
+# nixos for games and development - see jtower-gen-hyprland for current setup...  
 ## Hyprland: consistent 240fps 1 white dot protonGE8-16.  
 ### ((feature reqeust of obs to capture workspaces, I use 3 workspace, gaming (fullscreen), social (discord,firefox) and dev (vscode, kitty/shell, firefox), need gaming and dev workspace capture and probs no social workspace capture.))    
 .  
@@ -21,8 +23,7 @@ see: https://github.com/mikeroyal/PipeWire-Guide#wayland-development
 .  
 .  
 .  
-## Useful commands  
-Phill:  
+## Useful commands    
 ``` bash
 nix-collect-garbage -d
 ```
