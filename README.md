@@ -1,3 +1,6 @@
+## Nixos nvidia hyperland/wayland for games install guide:::  
+## https://github.com/jabl3s/nixos/blob/main/jtower-gen-hyprland/README.md
+.  
 Try using: https://mynixos.com/  
 .  
 # 1) nixos remote server install -  
