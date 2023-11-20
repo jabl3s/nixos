@@ -9,6 +9,7 @@
 .  
 .  
 .  
+  
 ====  
 If no kitty or notification covers prompt use Ctrl+Alt+F2 to root console window...  
 /home/j/.config/hypr/hyprland.conf  
