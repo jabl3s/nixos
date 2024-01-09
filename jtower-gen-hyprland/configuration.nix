@@ -32,18 +32,10 @@
     "autovt@tty1".enable = false;
   };
   security.rtkit.enable = true;
-  security.polkit.enable = true;
   console = { earlySetup = true; keyMap = "uk"; };
   networking.extraHosts = let hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
   hostsFile = builtins.fetchurl hostsPath;
   in builtins.readFile "${hostsFile}";
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 80 443 ];
-    allowedUDPPortRanges = [
-      { from = 3000; to = 9000; }
-    ];
-  };
   networking.hostName = "jtower";
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/London";
@@ -68,7 +60,7 @@
         enable      = true;
         finegrained = false;
       };
-      open = true;
+      open = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
     pulseaudio.enable = false;
@@ -122,26 +114,6 @@
     wl-clipboard wol wmctrl solaar konsole soundux noisetorch easyeffects
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
     rofi-wayland swww dunst kitty
-  # Development
-    tmux sshpass git
-    (python3.withPackages(ps: with ps; [       
-      tk tkinter pandas requests numpy
-      pendulum pillow moviepy pyqt5 pyqt6
-      pytest #briefcase
-      ]))
-     (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-      bbenoist.nix
-      ms-python.python
-      ms-azuretools.vscode-docker
-      ms-vscode-remote.remote-ssh
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-        name = "remote-ssh-edit"; ###check ssh repo here
-        publisher = "ms-vscode-remote";
-        version = "0.47.2";
-        sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
-      }];})
-    ## Beeware dependencies libgirepository1.0-dev gir1.2-webkit2-4.0 build-essential pkg-config python3-dev python3-venv libcairo2-dev libcanberra-gtk3-module
   # Gaming
     lutris firefox-wayland discord wineWowPackages.staging wineWowPackages.waylandFull
     winetricks
