@@ -12,7 +12,7 @@
   
 ====  
 If no kitty or notification covers prompt use Ctrl+Alt+F2 to root console window...  
-/home/j/.config/hypr/hyprland.conf  
+```/home/j/.config/hypr/hyprland.conf```  
 hyprland comment out the "monitor=,preferred,auto,auto" or try "monitor=,highres,auto,1"   
 add:::  bind=$mainMod, S, exec, rofi -show drun -show-icons
   Few more further steps at end of this vod:::  
