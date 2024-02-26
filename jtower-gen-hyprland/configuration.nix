@@ -31,7 +31,18 @@
     "getty@tty1".enable  = false;
     "autovt@tty1".enable = false;
   };
+  # Remove sound.enable or set it to false if you had it set previously, as sound.enable is only meant for ALSA-based configurations
+  sound.enable=false
+  # rtkit is optional but recommended
   security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
   console = { earlySetup = true; keyMap = "uk"; };
   networking.extraHosts = let hostsPath = https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
   hostsFile = builtins.fetchurl hostsPath;
@@ -40,7 +51,6 @@
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
-  sound.enable = true;
   hardware = {
     enableRedistributableFirmware = true;
     bluetooth.enable   = false;
@@ -57,7 +67,7 @@
       forceFullCompositionPipeline = true; #=>pop os has forceCompositionPipeline no "full"
       nvidiaSettings  = true;
       powerManagement = {
-        enable      = true;
+        enable      = false;
         finegrained = false;
       };
       open = false;
