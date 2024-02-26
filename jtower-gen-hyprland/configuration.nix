@@ -95,6 +95,7 @@
   };
   services.gvfs.enable = true ;
   services.tumbler.enable = true;  
+  ##services.xserver.displayManager.defaultSession = "plasmawayland";
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
