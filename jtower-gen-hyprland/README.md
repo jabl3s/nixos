@@ -2,7 +2,7 @@
   
 1) Get a bootable usb setup from nixos, I used the kde 64 bit iso one and burn it to a sandisk usb then booted into the nomodeset installer, note kde has issues with nvidia where as gnome3 or hyperland dont on my nix ```configuration.nix```.  
 2) Follow through the installer to get your desired drive setup with its first nix filesystem, note close the installer connect to the internet then rerun from the start menue, also chose blowfish encryption to move the install process along
-3) Mount the root and boot drives show with ```sudo su -``` ```lsblk```: Typically for nvme drive its ```mount /dev/nvmen1p2 /mnt``` and ```mount /dev/nvmen1p1 /mnt/boot``` then ```nixos-enter```, exit with ```exit``` before restart use ```umount -a```.
+3) Mount the root and boot drives show with ```sudo su -``` ```lsblk```: Typically for nvme drive its ```mount /dev/nvme1n1p2 /mnt``` and ```mount /dev/nvme1n1p1 /mnt/boot``` then ```nixos-enter```, exit with ```exit``` before restart use ```umount -a```.
 4) Edit the mounted filesystems nix with something like nano: ```nano /etc/nixos/configuration.nix``` ((Ctrl + k))-to delete old lines and replace with either mine or another desired nix file then run ```nixos-rebuild --install-bootloader switch``` -> might throw error but trust es good npnp.
 5) After boot configure hyprland, I followed this video here: https://youtu.be/61wGzIv12Ds
 .  
