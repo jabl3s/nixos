@@ -113,7 +113,7 @@
   # Base
     networkmanager networkmanagerapplet iwd libnotify xwayland wayland
     pciutils usbutils wget file unzip gimp alsa-utils polkit-kde-agent sshguard 
-    wl-clipboard wol wmctrl solaar konsole soundux noisetorch easyeffects
+    wl-clipboard wol wmctrl solaar konsole noisetorch easyeffects
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
     rofi-wayland swww dunst kitty
   # Gaming
