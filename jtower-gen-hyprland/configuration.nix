@@ -117,7 +117,7 @@ services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   # Base
-    networkmanager networkmanagerapplet iwd libnotify xwayland wayland
+    networkmanager networkmanagerapplet iwd libnotify xwayland wayland plasma-pa kmix pavucontrol
     pciutils usbutils wget file unzip gimp alsa-utils polkit-kde-agent sshguard 
     wl-clipboard wol wmctrl solaar konsole noisetorch easyeffects
     (pkgs.waybar.overrideAttrs (oldAttrs:{ mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
